@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music player</title>
+    <link rel="stylesheet" href="../dist/bundle.css">
+    <style>
+        html {
+            padding: 0px;
+            margin: 0;
+        }
+        body {
+            background: transparent;
+            margin: 0;
+            background: #F62459;
+        }
+
+        #player {
+            background: transparent;
+        }
+
+        .songs {
+            margin-top: 10px;
+        }
+
+        .songs ul li .btn {
+            float: right;
+        }
+
+        .player {
+            position: relative;
+            height: 120px;
+        }
+        .player .toolbar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="player">
+            <div class="player" class="row">
+                <div class="toolbar">
+                    <div class="col-xs-4">
+                        <div class="btn btn-default btn-block" v-on:click="toggleList()"><i class="fa fa-list"></i></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="btn btn-default btn-block" v-if="!isPlaying" v-on:click="resume()"><i class="fa fa-play"></i></div>
+                        <div class="btn btn-default btn-block" v-if="isPlaying"  v-on:click="pause()"><i class="fa fa-pause"></i></div>
+                    </div>
+                    <div class="col-xs-4">
+
+                    </div>
+                </div>
+            </div>
+            <div class="songs" class="row" v-show="listVisible">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="(song, index) in songs">
+                        {{index}}. {{song}}
+                        <div class="btn btn-primary btn-xs" v-if="currentTrack != index"    v-on:click="playTrack(index)"><i class="fa fa-play"></i></div>
+                        <div class="btn btn-success btn-xs" v-if="!isPlaying && currentTrack == index" v-on:click="resume()"><i class="fa fa-play"></i></div>
+                        <div class="btn btn-danger btn-xs"  v-if="isPlaying && currentTrack == index"  v-on:click="pause()"><i class="fa fa-pause"></i></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../dist/bundle.js"></script>
+</body>
+</html>
