@@ -30,7 +30,7 @@ app.on('ready', function() {
     var menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
     mainWindow.webContents.openDevTools();
-    mainWindow.loadURL(`file://${__dirname}/app/index.html`);
+    mainWindow.loadURL(`file://${__dirname}/app/screen/main.html`);
 });
 
 const ipc = electron.ipcMain;
