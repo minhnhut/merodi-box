@@ -7,7 +7,7 @@ const fs = require('fs');
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
-        width: 400,
+        width: 1000,
         height: 600,
         resizable: false
     });
@@ -30,7 +30,7 @@ app.on('ready', function() {
     var menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
     mainWindow.webContents.openDevTools();
-    mainWindow.loadURL(`file://${__dirname}/app/screen/main.html`);
+    mainWindow.loadURL(`file://${__dirname}/index.html`);
 });
 
 const ipc = electron.ipcMain;
