@@ -1,14 +1,9 @@
 <template>
-    <v-list>
+    <ul>
         <template v-for="(song, $index) in songs">
-            <v-list-tile v-bind:key="song" v-on:click="playTrack($index)">
-                <v-list-tile-content>
-                    <v-list-tile-title v-html="song"></v-list-tile-title>
-                    <v-list-tile-sub-title>test</v-list-tile-sub-title>
-                </v-list-tile-content>
-            </v-list-tile>
+            <li v-bind:key="song" v-on:click="playTrack($index)">{{song}}</li>
         </template>
-    </v-list>
+    </ul>
 </template>
 
 <script>

@@ -1,3 +1,7 @@
+// TODO is there any where to get rid of "default"
+const Constant = require("./js/core/Constant");
+
+// Electron
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -7,11 +11,12 @@ const fs = require('fs');
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
-        width: 1000,
+        width: 1300,
         height: 600,
-        resizable: false
+        resizable: true,
+        frame: false,
+        titleBarStyle: 'customButtonsOnHover'
     });
-    var emptyObject = {};
     var template = [
         {
             label: 'File',
@@ -33,12 +38,6 @@ app.on('ready', function() {
     mainWindow.loadURL(`file://${__dirname}/index.html`);
 });
 
-const ipc = electron.ipcMain;
-ipc.on('resize-height', function(event, arg) {
-    mainWindow.setSize(400, arg);
-    event.returnValue = "OK";
-});
-
 function openFolderDialog() {
     dialog.showOpenDialog(mainWindow, {
         properties: ['openDirectory']
@@ -58,3 +57,8 @@ function openFolderDialog() {
         });
     });
 }
+
+const ipc = electron.ipcMain;
+ipc.on(Constant.INVOKE_MAIN_PROCESS_FILE_DIALOG, function(event, arg) {
+    openFolderDialog();
+});

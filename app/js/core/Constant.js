@@ -1,0 +1,15 @@
+module.exports = {
+    //////////////////////////////////
+    //
+    //  Invokable action in App.vue
+    //
+    //////////////////////////////////
+    ACTION_OPEN_ADD_SONG_DIALOG: 100,
+
+    //////////////////////////////////
+    //
+    //  Invokable action on Main process
+    //
+    //////////////////////////////////
+    INVOKE_MAIN_PROCESS_FILE_DIALOG: 500
+};

@@ -1,15 +1,16 @@
 import Vue from 'vue'
-import App from './core/App.vue'
-import Vuetify from 'vuetify'
+import App from './screen/App.vue'
+import Play from './screen/Play.vue'
+
 import VueRouter from 'vue-router'
 
-require('vuetify/dist/vuetify.min.css');
+// require('vuetify/dist/vuetify.min.css');
 
 Vue.use(VueRouter);
-Vue.use(Vuetify);
+
 
 const routes = [
-    { path: '/', component: App },
+    { path: '/', component: Play },
 ];
 
 // 3. Create the router instance and pass the `routes` option
@@ -21,5 +22,6 @@ const router = new VueRouter({
 
 
 new Vue({
-  router
+    render: h => h(App),
+    router
 }).$mount('#root');

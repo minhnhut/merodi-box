@@ -5,19 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Music player</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
     <div id="root">
-        <v-app>
-            <v-navigation-drawer></v-navigation-drawer>
-            <v-toolbar></v-toolbar>
-            <main>
-                <v-container fluid>
-                    <router-view></router-view>
-                </v-container>
-            </main>
-            <v-footer></v-footer>
-        </v-app>
     </div>
     <script src="dist/bundle.js"></script>
 </body>

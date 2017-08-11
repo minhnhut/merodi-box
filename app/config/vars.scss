@@ -1,0 +1,27 @@
+$secondary: #fff;
+$secondaryText: #000;
+
+$primary: #000;
+$primaryText: #fff;
+
+$highlight: #1abc9c;
+$highlightText: #fff;
+
+$primaryHover: lighten($primary, 10%);
+$appBackground: lighten($primary, 10%);
+
+$barSize: 56px;
+
+$titlebarHeight: $barSize;
+$sidebarWidth: $barSize;
+$quickControlHeight: $barSize;
+
+$screenContentRightMargin: 30px;
+
+@mixin transition() {
+  transition: all 300ms ease;
+}
+
+@mixin border-radius() {
+  border-radius: 5px;
+}
