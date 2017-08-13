@@ -5,6 +5,7 @@
             <screen-content>
                 <titlebar></titlebar>
                 <router-view
+                    :musicPlayer="player"
                     @invokeAction="processInvokeAction"
                 ></router-view>
             </screen-content>
@@ -38,11 +39,14 @@
             ipcRenderer.on('modal-file-content', function(event, arg) {
                 _this.basePath = arg.basePath;
                 _this.songs = arg.songs;
-                console.log(arg.songs);
                 arg.songs.forEach(song => {
-                    _this.player.addSong(new Song(song, arg.basePath + '/' + song))
+                    _this.player.addSong(song, arg.basePath + '/' + song);
                 });
             });
+        },
+        created() {
+            this.player = new MusicPlayer();
+            console.log('MusicPlayer is created on APP');
         },
         data () {
             return {
@@ -53,7 +57,7 @@
                 ],
                 mini: false,
                 right: null,
-                player: new MusicPlayer()
+                player: null // created in created()
             }
         },
         methods: {
